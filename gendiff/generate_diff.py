@@ -1,9 +1,9 @@
-import json
+from gendiff.parser import parse
 
 
 def generate_diff(file1, file2):
-    data1 = json.load(open(file1))
-    data2 = json.load(open(file2))
+    data1 = parse(file1)
+    data2 = parse(file2)
 
     data = {*data1, *data2}
     diff_log = []
