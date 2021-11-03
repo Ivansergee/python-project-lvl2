@@ -1,15 +1,16 @@
 from pathlib import Path
 import pytest
 
-from gendiff.generate_diff import generate_diff
+from gendiff import generate_diff
+from gendiff import parse
 
 
 @pytest.fixture
 def data():
-    f1_json = Path().cwd() / 'tests' / 'fixtures' / 'sample1.json'
-    f2_json = Path().cwd() / 'tests' / 'fixtures' / 'sample2.json'
-    f1_yaml = Path().cwd() / 'tests' / 'fixtures' / 'sample1.yml'
-    f2_yaml = Path().cwd() / 'tests' / 'fixtures' / 'sample2.yaml'
+    f1_json = parse(Path().cwd() / 'tests' / 'fixtures' / 'sample1.json')
+    f2_json = parse(Path().cwd() / 'tests' / 'fixtures' / 'sample2.json')
+    f1_yaml = parse(Path().cwd() / 'tests' / 'fixtures' / 'sample1.yml')
+    f2_yaml = (Path().cwd() / 'tests' / 'fixtures' / 'sample2.yaml')
     f1_nested = Path().cwd() / 'tests' / 'fixtures' / 'sample1_nested.json'
     f2_nested = Path().cwd() / 'tests' / 'fixtures' / 'sample2_nested.json'
     with open(Path().cwd() / 'tests' / 'fixtures' / 'expected' / 'exp_nested.txt') as f:

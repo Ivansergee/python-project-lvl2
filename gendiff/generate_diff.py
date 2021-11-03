@@ -1,9 +1,4 @@
-from gendiff.parser import parse
-
-
-def generate_diff(file1, file2):
-    data1 = parse(file1)
-    data2 = parse(file2)
+def generate_diff(data1, data2):
 
     data = {*data1, *data2}
     diff_log = []
@@ -22,8 +17,4 @@ def generate_diff(file1, file2):
         diff_log.extend(res)
 
     diff_log.sort(key=lambda i: i[1])
-    res = [f"{ch} {key}: {val}" for ch, key, val in diff_log]
-    res_str = ''
-    for item in res:
-        res_str += item + '\n'
-    return '{\n' + res_str + '}'
+    

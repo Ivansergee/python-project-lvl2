@@ -9,4 +9,4 @@ def parse(file):
     elif path_str.endswith(('.yml', '.yaml')):
         return yaml.safe_load(open(file))
     else:
-        print('wrong format')
+        raise Exception('wrong format')

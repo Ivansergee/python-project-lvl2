@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import argparse
 
-from gendiff import generate_diff
+from gendiff import generate_diff, parse, to_sting
 
 
 def main():
@@ -12,7 +12,7 @@ def main():
 
     args = parser.parse_args()
 
-    print(generate_diff.generate_diff(args.first_file, args.second_file))
+    print(to_sting(generate_diff(parse(args.first_file), parse(args.second_file))))
 
 
 if __name__ == '__main__':
