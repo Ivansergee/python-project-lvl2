@@ -1,6 +1,10 @@
 def to_string(diff):
-    res = [f"{ch} {key}: {val}" for ch, key, val in diff]
-    res_str = ''
-    for item in res:
-        res_str += item + '\n'
-    return '{\n' + res_str + '}'
+    r = '{\n  '
+    for node in diff:
+        if 'children' in node:
+            pass
+        else:
+            res = '{} {}: {}\n'.format(
+                node['prefix'] if node['prefix'] else ' ',
+                node['name'],
+                node['value'])
