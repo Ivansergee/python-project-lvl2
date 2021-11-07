@@ -1,6 +1,6 @@
-from .parser import parse
-from .make_diff import make_diff
-from .printer import to_string
+from parser import parse
+from make_diff import make_diff
+from formatting import to_string
 
 
 def generate_diff(file1, file2):
