@@ -1,7 +1,7 @@
 import pytest
 from pathlib import Path
 
-from gendiff import parse
+from gendiff.parser import parse
 
 
 @pytest.fixture
