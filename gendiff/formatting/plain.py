@@ -1,24 +1,33 @@
+from collections import Counter
+
+
 def plain(diff, route=''):
-    diff.sort(key=lambda i: i['name'])
-    res = 'Property '
-    for i, node in enumerate(diff):
+    diff.sort(key=lambda x: (x['name'], x['prefix']))
+    count = Counter(i['name'] for i in diff)
+    res = ''
+    for index, node in enumerate(diff):
         if 'children' in node:
             route += node['name'] + '.'
-            plain(node['children'], route)
-        elif diff[i+1]['name'] == node['name']:
-            res += '{} was updated. From {} to {}'.format(
-                route + node['name'],
-                check_value(node['value']),
-                check_value(diff[i+1]['value'])
-            )
-            diff[i+1].pop()
+            res += plain(node['children'], route)
         elif node['prefix'] == '+':
-            res += '{} was added with value: {}'.format(
-                route + node['name'],
-                check_value(node['value'])
-            )
+            if count[node['name']] == 2:
+                res += "Property '{}' was updated. From {} to {}\n".format(
+                    route + node['name'],
+                    check_value(diff[index+1]['value']),
+                    check_value(node['value'])
+                )
+            else:
+                res += "Property '{}' was added with value: {}\n".format(
+                    route + node['name'],
+                    check_value(node['value'])
+                )
         elif node['prefix'] == '-':
-            res += route + node['name'] + 'was removed'
+            if count[node['name']] == 2:
+                continue
+            else:
+                res += "Property '{}' was removed\n".format(
+                    route + node['name']
+                )
     return res
 
 
@@ -31,4 +40,6 @@ def check_value(value):
         return 'false'
     elif value is None:
         return 'null'
+    elif isinstance(value, str):
+        return f"'{value}'"
     return value
