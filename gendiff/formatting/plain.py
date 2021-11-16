@@ -9,7 +9,6 @@ def plain(diff, route=''):
         if 'children' in node:
             route += node['name'] + '.'
             res += plain(node['children'], route)
-            route = ''
         elif node['prefix'] == '+':
             if count[node['name']] == 2:
                 res += "Property '{}' was updated. From {} to {}\n".format(
