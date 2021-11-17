@@ -7,13 +7,13 @@ def plain(diff, route=''):
     res = ''
     for index, node in enumerate(diff):
         if 'children' in node:
-            route += node['name'] + '.'
-            res += plain(node['children'], route)
+            new_route = route + node['name'] + '.'
+            res += plain(node['children'], new_route)
         elif node['prefix'] == '+':
             if count[node['name']] == 2:
                 res += "Property '{}' was updated. From {} to {}\n".format(
                     route + node['name'],
-                    check_value(diff[index+1]['value']),
+                    check_value(diff[index + 1]['value']),
                     check_value(node['value'])
                 )
             else:
