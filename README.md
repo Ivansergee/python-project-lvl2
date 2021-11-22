@@ -13,4 +13,4 @@ Simple files comparsion:
 [![asciicast](https://asciinema.org/a/QdA1nkr2sn06aqMy5Lfcrqa8O.svg)](https://asciinema.org/a/QdA1nkr2sn06aqMy5Lfcrqa8O)
 
 Nested files comparsion
-[![asciicast](https://asciinema.org/a/tFsC7K80WLys7HJOPL3Mh46dl.svg)](https://asciinema.org/a/tFsC7K80WLys7HJOPL3Mh46dl)
+[![asciicast](https://asciinema.org/a/tFsC7K80WLys7HJOPL3Mh46dl.svg)](https://asciinema.org/a/tFsC7K80WLys7HJOPL3Mh46dl)[![asciicast](https://asciinema.org/a/3PIl7FF8ytvvxkAeE6tFUK1uj.svg)](https://asciinema.org/a/3PIl7FF8ytvvxkAeE6tFUK1uj)
