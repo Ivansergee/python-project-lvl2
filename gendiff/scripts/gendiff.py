@@ -10,8 +10,8 @@ def main():
     parser.add_argument('second_file', type=str)
     parser.add_argument(
         '-f', '--format',
-        default='str',
-        help='set the format of output (default: str)'
+        default='stylish',
+        help='set the format of output (default: stylish)'
     )
 
     args = parser.parse_args()
