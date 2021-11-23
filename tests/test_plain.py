@@ -36,5 +36,11 @@ def test_plain(data):
     assert generate_diff(data['json1'], data['json2'], 'plain') == data['expected']
     assert generate_diff(data['yaml1'], data['yaml2'], 'plain') == data['expected']
 
-    assert generate_diff(data['json_nested1'], data['json_nested2'], 'plain') == data['expected_nested']
-    assert generate_diff(data['yaml_nested1'], data['yaml_nested2'], 'plain') == data['expected_nested']
+    assert generate_diff(
+        data['json_nested1'],
+        data['json_nested2'],
+        'plain') == data['expected_nested']
+    assert generate_diff(
+        data['yaml_nested1'],
+        data['yaml_nested2'],
+        'plain') == data['expected_nested']

@@ -34,8 +34,20 @@ def data():
 
 
 def test_json(data):
-    assert json.loads(generate_diff(data['json1'], data['json2'], 'json')) == json.loads(data['expected'])
-    assert json.loads(generate_diff(data['yaml1'], data['yaml2'], 'json')) == json.loads(data['expected'])
+    assert json.loads(generate_diff(
+        data['json1'],
+        data['json2'],
+        'json')) == json.loads(data['expected'])
+    assert json.loads(generate_diff(
+        data['yaml1'],
+        data['yaml2'],
+        'json')) == json.loads(data['expected'])
 
-    assert json.loads(generate_diff(data['json_nested1'], data['json_nested2'], 'json')) == json.loads(data['expected_nested'])
-    assert json.loads(generate_diff(data['yaml_nested1'], data['yaml_nested2'], 'json')) == json.loads(data['expected_nested'])
+    assert json.loads(generate_diff(
+        data['json_nested1'],
+        data['json_nested2'],
+        'json')) == json.loads(data['expected_nested'])
+    assert json.loads(generate_diff(
+        data['yaml_nested1'],
+        data['yaml_nested2'],
+        'json')) == json.loads(data['expected_nested'])
